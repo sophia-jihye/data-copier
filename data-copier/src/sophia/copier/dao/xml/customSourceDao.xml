@@ -4,7 +4,7 @@
 
 <mapper namespace="bxt.copier.dao.CustomDao">
 
-	<select id="forBxtUser" parameterType="bxt.copier.dto.InputDto" resultType="bxt.copier.dto.BxtUserDto">
+	<select id="selectBookList" parameterType="bxt.copier.dto.InputDto" resultType="bxt.copier.dto.BxtUserDto">
 		SELECT 
 			<foreach collection="column4PkList, targetColumn4PkList" index="index" separator=",">
 			    ${column4PkList[index]} as ${targetColumn4PkList[index]}

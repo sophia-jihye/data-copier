@@ -29,8 +29,8 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="customTargetDao.xml" />
-		<mapper resource="customSourceDao.xml" />
+		<mapper resource="sophia/copier/dao/xml/customTargetDao.xml" />
+		<mapper resource="sophia/copier/dao/xml/customSourceDao.xml" />
 	</mappers>
 	
 </configuration>

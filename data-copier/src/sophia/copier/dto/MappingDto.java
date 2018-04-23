@@ -41,4 +41,10 @@ public class MappingDto {
 		this.targetColumnList = targetColumnList;
 	}
 
+	@Override
+	public String toString() {
+		return "MappingDto [sourceQueryId=" + sourceQueryId + ", sourceColumnList=" + sourceColumnList
+				+ ", targetQueryId=" + targetQueryId + ", targetColumnList=" + targetColumnList + "]";
+	}
+
 }

@@ -30,7 +30,7 @@ public class ConfigManager {
 	private ConfigManager() {
 	}
 
-	private ConfigDto configDto;
+	private ConfigDto configDto = new ConfigDto();
 
 	public static ConfigManager instance() {
 		return instance;
@@ -114,8 +114,10 @@ public class ConfigManager {
 
 				List<String> sourceColumnList = new ArrayList<String>();
 				sourceColumnList.add(sourceColumn);
+				dto.setSourceColumnList(sourceColumnList);
 				List<String> targetColumnList = new ArrayList<String>();
 				targetColumnList.add(targetColumn);
+				dto.setTargetColumnList(targetColumnList);
 
 				tempMap.put(sourceQueryId, dto);
 
@@ -132,6 +134,10 @@ public class ConfigManager {
 			MappingDto mappingDto = tempMap.get(key);
 			mappingDtoList.add(mappingDto);
 		}
+
+		logger.debug("==============================");
+		logger.debug("[COPIER] mappingDtoList: {}", mappingDtoList);
+		logger.debug("==============================");
 
 		configDto.setMappingDtoList(mappingDtoList);
 	}
