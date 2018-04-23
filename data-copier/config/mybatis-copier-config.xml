@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 10sec=10 -->
+	<settings>
+        <setting name="defaultStatementTimeout" value="10"/>
+    </settings>
+
+	<environments default="source">
+		<environment id="source">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${source.driverClassName}" />
+				<property name="url" value="${source.url}" />
+				<property name="username" value="${source.username}" />
+				<property name="password" value="${source.password}" />
+			</dataSource>
+		</environment>
+		<environment id="target">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${target.driverClassName}" />
+				<property name="url" value="${target.url}" />
+				<property name="username" value="${target.username}" />
+				<property name="password" value="${target.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="customTargetDao.xml" />
+		<mapper resource="customSourceDao.xml" />
+	</mappers>
+	
+</configuration>
+

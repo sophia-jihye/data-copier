@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bxt.copier.dao.TargetDao">
+
+	<select id="validate" parameterType="java.lang.String" resultType="java.lang.String">
+		${value}
+	</select>
+
+	<select id="selectBxtUserByPk" parameterType="bxt.copier.dto.InputDto"
+		resultType="bxt.copier.dto.BxtUserDto">
+		SELECT 
+			<foreach collection="column4PkList" index="index" separator=",">
+			    ${column4PkList[index]} 
+			</foreach>
+			<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
+				,
+			</if>
+			<foreach collection="column4NonPkList" index="index" separator=",">
+			    ${column4NonPkList[index]} 
+			</foreach>
+		FROM ${table}
+		WHERE 
+			<foreach collection="column4PkList" index="index" separator="AND">
+				${column4PkList[index]} = #{bxtUserDto.${column4PkList[index]}, jdbcType=VARCHAR}
+			</foreach>
+	</select>
+	
+	<select id="selectBxtDeptByPk" parameterType="bxt.copier.dto.InputDto"
+		resultType="bxt.copier.dto.BxtDeptDto">
+		SELECT 
+			<foreach collection="column4PkList" index="index" separator=",">
+			    ${column4PkList[index]} 
+			</foreach>
+			<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
+				,
+			</if>
+			<foreach collection="column4NonPkList" index="index" separator=",">
+			    ${column4NonPkList[index]} 
+			</foreach>
+		FROM ${table}
+		WHERE 
+			<foreach collection="column4PkList" index="index" separator="AND">
+				${column4PkList[index]} = #{bxtDeptDto.${column4PkList[index]}, jdbcType=VARCHAR}
+			</foreach>
+	</select>
+	
+	<insert id="insert" parameterType="bxt.copier.dto.InputDto">
+		INSERT INTO ${table} 
+		( 
+			<foreach collection="column4PkList" index="index" separator=",">
+			    ${column4PkList[index]} 
+			</foreach>
+			<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
+				,
+			</if>
+			<foreach collection="column4NonPkList" index="index" separator=",">
+			    ${column4NonPkList[index]} 
+			</foreach> 
+			
+			, REG_DTTM
+		) 
+		VALUES ( 
+			<if test="bxtUserDto != null">
+				<foreach collection="column4PkList" index="index" separator=",">
+					#{bxtUserDto.${column4PkList[index]}, jdbcType=VARCHAR}
+				</foreach>
+				<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
+					,
+				</if>
+				<foreach collection="column4NonPkList" index="index" separator=",">
+					#{bxtUserDto.${column4NonPkList[index]}, jdbcType=VARCHAR}
+				</foreach>
+				
+				, #{bxtUserDto.REG_DTTM, jdbcType=VARCHAR}
+			</if>
+			
+			<if test="bxtDeptDto != null">
+				<foreach collection="column4PkList" index="index" separator=",">
+					#{bxtDeptDto.${column4PkList[index]}, jdbcType=VARCHAR}
+				</foreach>
+				<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
+					,
+				</if>
+				<foreach collection="column4NonPkList" index="index" separator=",">
+					#{bxtDeptDto.${column4NonPkList[index]}, jdbcType=VARCHAR}
+				</foreach>
+				
+				, #{bxtDeptDto.REG_DTTM, jdbcType=VARCHAR}
+			</if>
+		)
+	</insert>
+
+	<update id="update" parameterType="bxt.copier.dto.InputDto">
+		UPDATE ${table} 
+		SET
+			<if test="bxtUserDto != null">
+				<foreach collection="column4NonPkList" index="index" separator=",">
+				    ${column4NonPkList[index]} = #{bxtUserDto.${column4NonPkList[index]}, jdbcType=VARCHAR}
+				</foreach> 
+				, UPDT_DTTM = #{bxtUserDto.UPDT_DTTM, jdbcType=VARCHAR}
+				WHERE
+					<foreach collection="column4PkList" index="index" separator="AND">
+						${column4PkList[index]} = #{bxtUserDto.${column4PkList[index]}, jdbcType=VARCHAR}
+					</foreach>
+			</if>
+		
+			<if test="bxtDeptDto != null">
+				<foreach collection="column4NonPkList" index="index" separator=",">
+				    ${column4NonPkList[index]} = #{bxtDeptDto.${column4NonPkList[index]}, jdbcType=VARCHAR}
+				</foreach> 
+				, UPDT_DTTM = #{bxtDeptDto.UPDT_DTTM, jdbcType=VARCHAR}
+				WHERE
+					<foreach collection="column4PkList" index="index" separator="AND">
+						${column4PkList[index]} = #{bxtDeptDto.${column4PkList[index]}, jdbcType=VARCHAR}
+					</foreach>
+			</if>
+	</update>
+	
+	<select id="selectBxtUserToDelete" parameterType="java.lang.String"
+		resultType="bxt.copier.dto.BxtUserDto">
+		SELECT 
+			USER_ID
+			, SYS_ID
+			, USER_PWD
+			, USER_NM
+			, EMAIL
+			, DEL_YN
+			, DEPT_ID
+			, ROLE_ID
+			, UPDT_DTTM
+			, REG_DTTM
+		FROM BXT_USER
+		WHERE 
+			UPDT_DTTM &lt; #{value, jdbcType=VARCHAR}
+		ORDER BY USER_ID, SYS_ID
+	</select>
+	
+	<delete id="deleteBxtUser" parameterType="bxt.copier.dto.BxtUserDto">
+		DELETE FROM BXT_USER
+		WHERE 
+			USER_ID=#{USER_ID, jdbcType=VARCHAR} 
+			AND SYS_ID=#{SYS_ID, jdbcType=VARCHAR}
+			AND USER_ID != 'sysadmin'
+	</delete>
+	
+	<select id="selectBxtDeptToDelete" parameterType="java.lang.String"
+		resultType="bxt.copier.dto.BxtDeptDto">
+		SELECT 
+			DEPT_ID
+			, SYS_ID
+			, DEPT_NM
+			, DEPT_ENG_NM
+			, PARENT_DEPT_ID
+			, UPDT_DTTM
+			, REG_DTTM
+		FROM BXT_DEPT
+		WHERE 
+			UPDT_DTTM &lt; #{value, jdbcType=VARCHAR}
+		ORDER BY DEPT_ID, SYS_ID
+	</select>
+	
+	<delete id="deleteBxtDept" parameterType="bxt.copier.dto.BxtDeptDto">
+		DELETE FROM BXT_DEPT
+		WHERE 
+			DEPT_ID=#{DEPT_ID, jdbcType=VARCHAR} 
+			AND SYS_ID=#{SYS_ID, jdbcType=VARCHAR}
+	</delete>
+	
+	<select id="selectSysIdStartWith" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT CD_NM
+		FROM BXT_COM_CD
+		WHERE 
+			CD_CATEGORY='SystemCd'
+			AND CD_NM LIKE #{value, jdbcType=VARCHAR}||'%'
+		ORDER BY CD_NM
+	</select>
+	
+</mapper>

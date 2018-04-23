@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bxt.copier.dao.CustomDao">
+
+	<select id="forBxtUser" parameterType="bxt.copier.dto.InputDto" resultType="bxt.copier.dto.BxtUserDto">
+		SELECT 
+			<foreach collection="column4PkList, targetColumn4PkList" index="index" separator=",">
+			    ${column4PkList[index]} as ${targetColumn4PkList[index]}
+			</foreach>
+			<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
+				,
+			</if>
+			<foreach collection="column4NonPkList, targetColumn4NonPkList" item = "column" index="index" separator=",">
+				${column4NonPkList[index]} as ${targetColumn4NonPkList[index]}
+			</foreach>
+		FROM (
+			SELECT 
+			  C.USER_ID
+			  , C.USER_NM
+			  , C.USE_FLG
+			  , C.DEPT_CD
+			  , D.ROLE_CD
+			FROM (
+			    SELECT 
+			      A.USER_ID
+			      , A.USER_NM
+			      , A.DEPT_CD
+			      , B.USE_FLG
+			      , B.USER_GRP_CD 
+			    
+			    <!-- Be careful to type schema correctly -->
+			    FROM BXQ.EI_USER_INFO A LEFT OUTER JOIN BXQ.EI_USER_USER_GRP_RL B ON A.USER_NO=B.USER_NO
+			    WHERE B.USE_FLG='Y'
+			  ) C LEFT OUTER JOIN BXQ.EI_USER_GRP_ROLE_RL D ON C.USER_GRP_CD = D.USER_GRP_CD
+			ORDER BY USER_ID, SUBSTR(ROLE_CD, -8) DESC
+		) Z
+	</select>
+	
+	<select id="forBxtDept" parameterType="bxt.copier.dto.InputDto" resultType="bxt.copier.dto.BxtDeptDto">
+		SELECT 
+			<foreach collection="column4PkList, targetColumn4PkList" index="index" separator=",">
+			    ${column4PkList[index]} as ${targetColumn4PkList[index]}
+			</foreach>
+			<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
+				,
+			</if>
+			<foreach collection="column4NonPkList, targetColumn4NonPkList" item = "column" index="index" separator=",">
+				${column4NonPkList[index]} as ${targetColumn4NonPkList[index]}
+			</foreach>
+		FROM (
+			SELECT 
+			  DEPT_CD
+			  , DEPT_NM
+			  , DEPT_ENG_NM
+			  , UPP_DEPT_CD
+			
+			<!-- Be careful to type schema correctly --> 
+			FROM BXQ.EI_DEPT_INFO
+			WHERE USE_FLG='Y'
+			ORDER BY DEPT_CD
+		) Z
+	</select>
+
+	<!-- This query is related with target table  -->
+	<select id="allSystemId" resultType="java.lang.String">
+		SELECT 
+		  CD_NM
+		FROM BXT_COM_CD
+		WHERE CD_CATEGORY='SystemCd'
+	</select>
+	
+</mapper>
