@@ -25,7 +25,7 @@ public class CopierMain {
 		if (IConstants.CONFIG_PROPERTY.OPTION_ONE_TIME.equalsIgnoreCase(option)) {
 
 			// 실행
-			// copyManager.startCopy();
+			copyManager.startCopy();
 
 		} else if (IConstants.CONFIG_PROPERTY.OPTION_CONTINUE.equalsIgnoreCase(option)) {
 			// option = 'continue' : 'off'가 입력될 때까지 계속 실행

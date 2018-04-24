@@ -77,14 +77,34 @@ public class ConfigManager {
 	public void prop2Dto(Properties prop) {
 		configDto.setLog4jPropPath(prop.getProperty(IConstants.CONFIG_PROPERTY.LOG4J_PROP_PATH));
 		configDto.setMybatisConfigPath(prop.getProperty(IConstants.CONFIG_PROPERTY.MYBATIS_CONFIG_PATH));
-		configDto.setSourceDbDriverClassName(prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_DRIVER_CLASS_NAME));
-		configDto.setSourceDbUrl(prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_URL));
-		configDto.setSourceDbUsername(prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_USERNAME));
-		configDto.setSourceDbPassword(prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_PASSWORD));
-		configDto.setTargetDbDriverClassName(prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_DRIVER_CLASS_NAME));
-		configDto.setTargetDbUrl(prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_URL));
-		configDto.setTargetDbUsername(prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_USERNAME));
-		configDto.setTargetDbPassword(prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_PASSWORD));
+
+		Properties sourceDbProp = new Properties();
+		sourceDbProp.setProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_DRIVER_CLASS_NAME,
+				prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_DRIVER_CLASS_NAME));
+		String sourceDbUrl = prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_URL);
+		sourceDbProp.setProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_URL, sourceDbUrl);
+		String sourceDbUserName = prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_USERNAME);
+		sourceDbProp.setProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_USERNAME, sourceDbUserName);
+		sourceDbProp.setProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_PASSWORD,
+				prop.getProperty(IConstants.CONFIG_PROPERTY.SOURCE_DB_PASSWORD));
+		configDto.setSourceDbProp(sourceDbProp);
+
+		Properties targetDbProp = new Properties();
+		targetDbProp.setProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_DRIVER_CLASS_NAME,
+				prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_DRIVER_CLASS_NAME));
+		String targetDbUrl = prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_URL);
+		targetDbProp.setProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_URL, targetDbUrl);
+		String targetDbUserName = prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_USERNAME);
+		targetDbProp.setProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_USERNAME, targetDbUserName);
+		targetDbProp.setProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_PASSWORD,
+				prop.getProperty(IConstants.CONFIG_PROPERTY.TARGET_DB_PASSWORD));
+		configDto.setTargetDbProp(targetDbProp);
+
+		// check whether source db connection and target db connection can use
+		// only one connection.
+		if (sourceDbUrl.equalsIgnoreCase(targetDbUrl) && sourceDbUserName.equalsIgnoreCase(targetDbUserName)) {
+			configDto.setSourceTargetSameConn(true);
+		}
 
 		convertToMappingDtoList(prop);
 
@@ -96,13 +116,6 @@ public class ConfigManager {
 		String maxWait = prop.getProperty(IConstants.CONFIG_PROPERTY.COPIER_MIN_WAIT);
 		if (CopierUtil.instance().isNumber(maxWait)) {
 			configDto.setCopierMaxWait(Integer.parseInt(maxWait));
-		}
-
-		// check whether source db connection and target db connection can use
-		// only one connection.
-		if (configDto.getSourceDbUrl().equalsIgnoreCase(configDto.getTargetDbUrl())
-				&& configDto.getSourceDbUsername().equalsIgnoreCase(configDto.getTargetDbUsername())) {
-			configDto.setSourceTargetSameConn(true);
 		}
 
 	}

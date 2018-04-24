@@ -1,19 +1,14 @@
 package sophia.copier.dto;
 
 import java.util.List;
+import java.util.Properties;
 
 public class ConfigDto {
 
 	private String log4jPropPath;
 	private String mybatisConfigPath;
-	private String sourceDbDriverClassName;
-	private String sourceDbUrl;
-	private String sourceDbUsername;
-	private String sourceDbPassword;
-	private String targetDbDriverClassName;
-	private String targetDbUrl;
-	private String targetDbUsername;
-	private String targetDbPassword;
+	private Properties sourceDbProp;
+	private Properties targetDbProp;
 	private List<MappingDto> mappingDtoList;
 	private Integer copierMinWait;
 	private Integer copierMaxWait;
@@ -39,68 +34,20 @@ public class ConfigDto {
 		this.mybatisConfigPath = mybatisConfigPath;
 	}
 
-	public String getSourceDbDriverClassName() {
-		return sourceDbDriverClassName;
+	public Properties getSourceDbProp() {
+		return sourceDbProp;
 	}
 
-	public void setSourceDbDriverClassName(String sourceDbDriverClassName) {
-		this.sourceDbDriverClassName = sourceDbDriverClassName;
+	public void setSourceDbProp(Properties sourceDbProp) {
+		this.sourceDbProp = sourceDbProp;
 	}
 
-	public String getSourceDbUrl() {
-		return sourceDbUrl;
+	public Properties getTargetDbProp() {
+		return targetDbProp;
 	}
 
-	public void setSourceDbUrl(String sourceDbUrl) {
-		this.sourceDbUrl = sourceDbUrl;
-	}
-
-	public String getSourceDbUsername() {
-		return sourceDbUsername;
-	}
-
-	public void setSourceDbUsername(String sourceDbUsername) {
-		this.sourceDbUsername = sourceDbUsername;
-	}
-
-	public String getSourceDbPassword() {
-		return sourceDbPassword;
-	}
-
-	public void setSourceDbPassword(String sourceDbPassword) {
-		this.sourceDbPassword = sourceDbPassword;
-	}
-
-	public String getTargetDbDriverClassName() {
-		return targetDbDriverClassName;
-	}
-
-	public void setTargetDbDriverClassName(String targetDbDriverClassName) {
-		this.targetDbDriverClassName = targetDbDriverClassName;
-	}
-
-	public String getTargetDbUrl() {
-		return targetDbUrl;
-	}
-
-	public void setTargetDbUrl(String targetDbUrl) {
-		this.targetDbUrl = targetDbUrl;
-	}
-
-	public String getTargetDbUsername() {
-		return targetDbUsername;
-	}
-
-	public void setTargetDbUsername(String targetDbUsername) {
-		this.targetDbUsername = targetDbUsername;
-	}
-
-	public String getTargetDbPassword() {
-		return targetDbPassword;
-	}
-
-	public void setTargetDbPassword(String targetDbPassword) {
-		this.targetDbPassword = targetDbPassword;
+	public void setTargetDbProp(Properties targetDbProp) {
+		this.targetDbProp = targetDbProp;
 	}
 
 	public List<MappingDto> getMappingDtoList() {
