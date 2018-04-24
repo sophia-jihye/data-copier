@@ -1,0 +1,78 @@
+[2018-04-24 10:04:52][DEBUG](ConfigManager.java:138)-==============================
+[2018-04-24 10:04:52][DEBUG](ConfigManager.java:138)-==============================
+[2018-04-24 10:04:52][DEBUG](ConfigManager.java:139)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:04:52][DEBUG](ConfigManager.java:139)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:04:52][DEBUG](ConfigManager.java:140)-==============================
+[2018-04-24 10:04:52][DEBUG](ConfigManager.java:140)-==============================
+[2018-04-24 10:05:30][DEBUG](ConfigManager.java:138)-==============================
+[2018-04-24 10:05:30][DEBUG](ConfigManager.java:138)-==============================
+[2018-04-24 10:05:30][DEBUG](ConfigManager.java:139)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:05:30][DEBUG](ConfigManager.java:139)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:05:30][DEBUG](ConfigManager.java:140)-==============================
+[2018-04-24 10:05:30][DEBUG](ConfigManager.java:140)-==============================
+[2018-04-24 10:09:59][DEBUG](ConfigManager.java:141)-==============================
+[2018-04-24 10:09:59][DEBUG](ConfigManager.java:141)-==============================
+[2018-04-24 10:09:59][DEBUG](ConfigManager.java:142)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:09:59][DEBUG](ConfigManager.java:142)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:09:59][DEBUG](ConfigManager.java:143)-==============================
+[2018-04-24 10:09:59][DEBUG](ConfigManager.java:143)-==============================
+[2018-04-24 10:15:04][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:04][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:04][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:04][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:04][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:04][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:06][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:06][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:06][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:06][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:06][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:06][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:10][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:10][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:10][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:10][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:10][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:10][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:15][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:16][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:16][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:15:16][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:16][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:15:16][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:15:16][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:16:20][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:16:20][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:16:20][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:16:20][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:16:20][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:16:20][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:18:18][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:18:18][DEBUG](ConfigManager.java:165)-==============================
+[2018-04-24 10:18:18][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:18:18][DEBUG](ConfigManager.java:166)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
+[2018-04-24 10:18:18][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:18:18][DEBUG](ConfigManager.java:167)-==============================
+[2018-04-24 10:18:18][INFO ](CopyManager.java:16)-[COPIER] =====================COPIER-STARTED=====================
+[2018-04-24 10:18:18][INFO ](CopyManager.java:16)-[COPIER] =====================COPIER-STARTED=====================
+[2018-04-24 10:18:18][INFO ](CopyManager.java:18)-[COPIER] Current Thread: Thread[main,5,main]
+[2018-04-24 10:18:18][INFO ](CopyManager.java:18)-[COPIER] Current Thread: Thread[main,5,main]
+[2018-04-24 10:18:18][INFO ](CopyManager.java:23)-[COPIER] --------------------
+[2018-04-24 10:18:18][INFO ](CopyManager.java:23)-[COPIER] --------------------
+[2018-04-24 10:18:18][INFO ](CopyManager.java:24)-[COPIER] Elapsed Time: 4(MilliSeconds)
+[2018-04-24 10:18:18][INFO ](CopyManager.java:24)-[COPIER] Elapsed Time: 4(MilliSeconds)
+[2018-04-24 10:18:18][INFO ](CopyManager.java:25)-[COPIER] --------------------
+[2018-04-24 10:18:18][INFO ](CopyManager.java:25)-[COPIER] --------------------
+[2018-04-24 10:18:18][INFO ](CopyManager.java:27)-[COPIER] =====================COPIER-FINISHED=====================
+[2018-04-24 10:18:18][INFO ](CopyManager.java:27)-[COPIER] =====================COPIER-FINISHED=====================
