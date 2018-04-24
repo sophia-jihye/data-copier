@@ -1,91 +1,15 @@
-[2018-04-24 13:12:09][DEBUG](ConfigManager.java:178)-==============================
-[2018-04-24 13:12:09][DEBUG](ConfigManager.java:178)-==============================
-[2018-04-24 13:12:09][DEBUG](ConfigManager.java:179)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
-[2018-04-24 13:12:09][DEBUG](ConfigManager.java:179)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetQueryId=insertBook, targetColumnList=[BOOK_NM, BOOK_PRICE]]]
-[2018-04-24 13:12:09][DEBUG](ConfigManager.java:180)-==============================
-[2018-04-24 13:12:09][DEBUG](ConfigManager.java:180)-==============================
-[2018-04-24 13:12:09][INFO ](CopyManager.java:20)-[COPIER] =====================COPIER-STARTED=====================
-[2018-04-24 13:12:09][INFO ](CopyManager.java:20)-[COPIER] =====================COPIER-STARTED=====================
-[2018-04-24 13:12:09][INFO ](CopyManager.java:22)-[COPIER] Current Thread: Thread[main,5,main]
-[2018-04-24 13:12:09][INFO ](CopyManager.java:22)-[COPIER] Current Thread: Thread[main,5,main]
-[2018-04-24 13:12:09][DEBUG](LogFactory.java:124)-Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
-[2018-04-24 13:12:09][DEBUG](PooledDataSource.java:304)-PooledDataSource forcefully closed/removed all connections.
-[2018-04-24 13:12:09][DEBUG](PooledDataSource.java:304)-PooledDataSource forcefully closed/removed all connections.
-[2018-04-24 13:12:09][DEBUG](PooledDataSource.java:304)-PooledDataSource forcefully closed/removed all connections.
-[2018-04-24 13:12:09][DEBUG](PooledDataSource.java:304)-PooledDataSource forcefully closed/removed all connections.
-[2018-04-24 13:12:09][ERROR](FactoryManager.java:64)-[COPIER] Error occurred while executing query. (Failed to select list from sourceTable)
-org.apache.ibatis.exceptions.PersistenceException: 
-### Error querying database.  Cause: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
-### Cause: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
-	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:107)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:98)
-	at sophia.copier.manager.FactoryManager.selectFromSource(FactoryManager.java:62)
-	at sophia.copier.manager.CopyManager.runProcess(CopyManager.java:42)
-	at sophia.copier.manager.CopyManager.startCopy(CopyManager.java:23)
-	at sophia.copier.CopierMain.main(CopierMain.java:28)
-Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
-	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextMap.get(DynamicContext.java:88)
-	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextAccessor.getProperty(DynamicContext.java:113)
-	at org.apache.ibatis.ognl.OgnlRuntime.getProperty(OgnlRuntime.java:1657)
-	at org.apache.ibatis.ognl.ASTProperty.getValueBody(ASTProperty.java:92)
-	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:170)
-	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:210)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:333)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:413)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:395)
-	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:45)
-	at org.apache.ibatis.scripting.xmltags.TextSqlNode$BindingTokenParser.handleToken(TextSqlNode.java:50)
-	at org.apache.ibatis.parsing.GenericTokenParser.parse(GenericTokenParser.java:50)
-	at org.apache.ibatis.scripting.xmltags.TextSqlNode.apply(TextSqlNode.java:31)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:29)
-	at org.apache.ibatis.scripting.xmltags.ForEachSqlNode.apply(ForEachSqlNode.java:76)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:29)
-	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:37)
-	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:275)
-	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:79)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)
-	... 5 more
-[2018-04-24 13:12:09][ERROR](FactoryManager.java:64)-[COPIER] Error occurred while executing query. (Failed to select list from sourceTable)
-org.apache.ibatis.exceptions.PersistenceException: 
-### Error querying database.  Cause: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
-### Cause: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
-	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:23)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:107)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:98)
-	at sophia.copier.manager.FactoryManager.selectFromSource(FactoryManager.java:62)
-	at sophia.copier.manager.CopyManager.runProcess(CopyManager.java:42)
-	at sophia.copier.manager.CopyManager.startCopy(CopyManager.java:23)
-	at sophia.copier.CopierMain.main(CopierMain.java:28)
-Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
-	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextMap.get(DynamicContext.java:88)
-	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextAccessor.getProperty(DynamicContext.java:113)
-	at org.apache.ibatis.ognl.OgnlRuntime.getProperty(OgnlRuntime.java:1657)
-	at org.apache.ibatis.ognl.ASTProperty.getValueBody(ASTProperty.java:92)
-	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:170)
-	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:210)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:333)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:413)
-	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:395)
-	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:45)
-	at org.apache.ibatis.scripting.xmltags.TextSqlNode$BindingTokenParser.handleToken(TextSqlNode.java:50)
-	at org.apache.ibatis.parsing.GenericTokenParser.parse(GenericTokenParser.java:50)
-	at org.apache.ibatis.scripting.xmltags.TextSqlNode.apply(TextSqlNode.java:31)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:29)
-	at org.apache.ibatis.scripting.xmltags.ForEachSqlNode.apply(ForEachSqlNode.java:76)
-	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:29)
-	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:37)
-	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:275)
-	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:79)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:104)
-	... 5 more
-[2018-04-24 13:12:09][DEBUG](CopyManager.java:44)-sourceOutputList: null
-[2018-04-24 13:12:09][DEBUG](CopyManager.java:44)-sourceOutputList: null
-[2018-04-24 13:12:09][INFO ](CopyManager.java:27)-[COPIER] --------------------
-[2018-04-24 13:12:09][INFO ](CopyManager.java:27)-[COPIER] --------------------
-[2018-04-24 13:12:09][INFO ](CopyManager.java:28)-[COPIER] Elapsed Time: 301(MilliSeconds)
-[2018-04-24 13:12:09][INFO ](CopyManager.java:28)-[COPIER] Elapsed Time: 301(MilliSeconds)
-[2018-04-24 13:12:09][INFO ](CopyManager.java:29)-[COPIER] --------------------
-[2018-04-24 13:12:09][INFO ](CopyManager.java:29)-[COPIER] --------------------
-[2018-04-24 13:12:09][INFO ](CopyManager.java:31)-[COPIER] =====================COPIER-FINISHED=====================
-[2018-04-24 13:12:09][INFO ](CopyManager.java:31)-[COPIER] =====================COPIER-FINISHED=====================
+[2018-04-24 15:20:10][INFO ](ConfigManager.java:178)-[COPIER] --------------------
+[2018-04-24 15:20:10][DEBUG](ConfigManager.java:179)-[COPIER] mappingDtoList: [MappingDto [sourceQueryId=selectBookList, sourceColumnList=[BOOK_NM, BOOK_PRICE], targetTableName=BOOK2, targetColumnList=[colcol1, colcol2]]]
+[2018-04-24 15:20:10][INFO ](CopyManager.java:21)-[COPIER] =====================COPIER-STARTED=====================
+[2018-04-24 15:20:10][INFO ](CopyManager.java:23)-[COPIER] Current Thread: Thread[main,5,main]
+[2018-04-24 15:20:10][DEBUG](BaseJdbcLogger.java:132)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@61578aab]
+[2018-04-24 15:20:10][DEBUG](BaseJdbcLogger.java:132)-==>  Preparing: SELECT BOOK_NM as colcol1 , BOOK_PRICE as colcol2 FROM ( SELECT BOOK_NM , BOOK_PRICE FROM BOOK1 ORDER BY BOOK_NM ASC ) Z 
+[2018-04-24 15:20:10][DEBUG](BaseJdbcLogger.java:132)-==> Parameters: 
+[2018-04-24 15:20:10][DEBUG](BaseJdbcLogger.java:132)-<==      Total: 4
+[2018-04-24 15:20:10][INFO ](CopyManager.java:66)-[COPIER] --------------------
+[2018-04-24 15:20:10][DEBUG](CopyManager.java:67)-[COPIER] Summary: selectCount: 4
+[2018-04-24 15:20:10][DEBUG](CopyManager.java:68)-[COPIER] Summary: updateCount: 4
+[2018-04-24 15:20:10][DEBUG](CopyManager.java:69)-[COPIER] Summary: insertCount: 0
+[2018-04-24 15:20:10][INFO ](CopyManager.java:28)-[COPIER] --------------------
+[2018-04-24 15:20:10][INFO ](CopyManager.java:29)-[COPIER] Elapsed Time: 856(MilliSeconds)
+[2018-04-24 15:20:10][INFO ](CopyManager.java:31)-[COPIER] =====================COPIER-FINISHED=====================
