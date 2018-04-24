@@ -7,7 +7,7 @@
 	<select id="selectBookList" parameterType="sophia.copier.dto.MappingDto" resultType="sophia.copier.dto.TempOutputDto">
 		SELECT 
 			<foreach collection="sourceColumnList, targetColumnList" index="index" separator=",">
-			    ${sourceColumnList[index]} as '$'[index]
+			    ${sourceColumnList[index]} as ${targetColumnList[index]}
 			</foreach>
 		FROM (
 		<!-- 아래 쿼리 작성 -->
