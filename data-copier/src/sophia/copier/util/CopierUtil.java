@@ -1,5 +1,9 @@
 package sophia.copier.util;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +18,12 @@ public class CopierUtil {
 
 	public static CopierUtil instance() {
 		return instance;
+	}
+
+	public String getDateTimeMilFormat() {
+		Date date = new Date(getTimeStamp());
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		return dateFormat.format(date);
 	}
 
 	public long getTimeStamp() {

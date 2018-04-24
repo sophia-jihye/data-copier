@@ -3,7 +3,12 @@ package sophia.copier.constant;
 public interface IConstants {
 
 	String MAPPING_DELIMITER = "@";
-
+	
+	interface QUERY_PREFIX {
+		String INSERT = "insert";
+		String UPDATE = "update";
+	}
+	
 	interface MYBATIS_CONFIG {
 		String SOURCE = "source";
 		String TARGET = "target";

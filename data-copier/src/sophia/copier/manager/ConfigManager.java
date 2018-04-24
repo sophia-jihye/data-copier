@@ -142,7 +142,7 @@ public class ConfigManager {
 			String[] strArr = mappingList.get(i).split(DELIMITER);
 			String sourceQueryId = strArr[0];
 			String sourceColumn = strArr[1];
-			String targetQueryId = strArr[2];
+			String targetTableName = strArr[2];
 			String targetColumn = strArr[3];
 
 			MappingDto tempMappingDto = null;
@@ -150,7 +150,7 @@ public class ConfigManager {
 				MappingDto dto = new MappingDto();
 
 				dto.setSourceQueryId(sourceQueryId);
-				dto.setTargetQueryId(targetQueryId);
+				dto.setTargetTableName(targetTableName);
 
 				List<String> sourceColumnList = new ArrayList<String>();
 				sourceColumnList.add(sourceColumn);
@@ -175,9 +175,8 @@ public class ConfigManager {
 			mappingDtoList.add(mappingDto);
 		}
 
-		logger.debug("==============================");
+		logger.info("[COPIER] --------------------");
 		logger.debug("[COPIER] mappingDtoList: {}", mappingDtoList);
-		logger.debug("==============================");
 
 		configDto.setMappingDtoList(mappingDtoList);
 	}

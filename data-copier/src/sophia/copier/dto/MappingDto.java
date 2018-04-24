@@ -6,7 +6,7 @@ public class MappingDto {
 
 	private String sourceQueryId;
 	private List<String> sourceColumnList;
-	private String targetQueryId;
+	private String targetTableName;
 	private List<String> targetColumnList;
 
 	public String getSourceQueryId() {
@@ -25,12 +25,12 @@ public class MappingDto {
 		this.sourceColumnList = sourceColumnList;
 	}
 
-	public String getTargetQueryId() {
-		return targetQueryId;
+	public String getTargetTableName() {
+		return targetTableName;
 	}
 
-	public void setTargetQueryId(String targetQueryId) {
-		this.targetQueryId = targetQueryId;
+	public void setTargetTableName(String targetTableName) {
+		this.targetTableName = targetTableName;
 	}
 
 	public List<String> getTargetColumnList() {
@@ -44,7 +44,7 @@ public class MappingDto {
 	@Override
 	public String toString() {
 		return "MappingDto [sourceQueryId=" + sourceQueryId + ", sourceColumnList=" + sourceColumnList
-				+ ", targetQueryId=" + targetQueryId + ", targetColumnList=" + targetColumnList + "]";
+				+ ", targetTableName=" + targetTableName + ", targetColumnList=" + targetColumnList + "]";
 	}
 
 }

@@ -4,42 +4,24 @@
 
 <mapper namespace="bxt.copier.dao.TargetDao">
 
-	<insert id="insertBook" parameterType="sophia.copier.dto.MappingDto">
+	<insert id="insertBOOK2" parameterType="sophia.copier.dto.TempOutputDto">
 		INSERT INTO BOOK2
 		( 
-			<foreach collection="sourceColumnList" index="index" separator=",">
-			    ${sourceColumnList[index]} 
-			</foreach>
+			book_nm_2, book_price_2, reg_dttm
 		) 
 		VALUES ( 
-			<if test="bxtUserDto != null">
-				<foreach collection="column4PkList" index="index" separator=",">
-					#{bxtUserDto.${column4PkList[index]}, jdbcType=VARCHAR}
-				</foreach>
-				<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
-					,
-				</if>
-				<foreach collection="column4NonPkList" index="index" separator=",">
-					#{bxtUserDto.${column4NonPkList[index]}, jdbcType=VARCHAR}
-				</foreach>
-				
-				, #{bxtUserDto.REG_DTTM, jdbcType=VARCHAR}
-			</if>
-			
-			<if test="bxtDeptDto != null">
-				<foreach collection="column4PkList" index="index" separator=",">
-					#{bxtDeptDto.${column4PkList[index]}, jdbcType=VARCHAR}
-				</foreach>
-				<if test="column4PkList.size() >0 and column4NonPkList.size() >0 ">
-					,
-				</if>
-				<foreach collection="column4NonPkList" index="index" separator=",">
-					#{bxtDeptDto.${column4NonPkList[index]}, jdbcType=VARCHAR}
-				</foreach>
-				
-				, #{bxtDeptDto.REG_DTTM, jdbcType=VARCHAR}
-			</if>
+				#{book_nm_2, jdbcType=VARCHAR}
+				, #{book_price_2, jdbcType=VARCHAR}
+				, #{dttm, jdbcType=VARCHAR}
 		)
 	</insert>
+	
+	<update id="updateBOOK2" parameterType="sophia.copier.dto.TempOutputDto">
+		UPDATE BOOK2
+		SET
+			book_price_2 = #{book_price_2, jdbcType=VARCHAR}
+			, updt_dttm = #{dttm, jdbcType=VARCHAR}
+		WHERE book_nm_2 = #{book_nm_2, jdbcType=VARCHAR}
+	</update>
 
 </mapper>
