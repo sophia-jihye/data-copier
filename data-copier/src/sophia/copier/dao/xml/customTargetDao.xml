@@ -10,8 +10,8 @@
 			book_nm_2, book_price_2, reg_dttm
 		) 
 		VALUES ( 
-				#{book_nm_2, jdbcType=VARCHAR}
-				, #{book_price_2, jdbcType=VARCHAR}
+				#{colcol1, jdbcType=VARCHAR}
+				, #{colcol2, jdbcType=VARCHAR}
 				, #{dttm, jdbcType=VARCHAR}
 		)
 	</insert>
@@ -19,9 +19,9 @@
 	<update id="updateBOOK2" parameterType="sophia.copier.dto.TempOutputDto">
 		UPDATE BOOK2
 		SET
-			book_price_2 = #{book_price_2, jdbcType=VARCHAR}
+			book_price_2 = #{colcol2, jdbcType=VARCHAR}
 			, updt_dttm = #{dttm, jdbcType=VARCHAR}
-		WHERE book_nm_2 = #{book_nm_2, jdbcType=VARCHAR}
+		WHERE book_nm_2 = #{colcol1, jdbcType=VARCHAR}
 	</update>
 
 </mapper>
