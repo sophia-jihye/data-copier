@@ -40,12 +40,32 @@ public class ConfigManager {
 		return configDto;
 	}
 
-	public Properties loadProp(String path) {
+	public Properties loadPropOnly(String path) {
+
 		Properties prop = new Properties();
 		try {
 			prop.load(new BufferedInputStream(new FileInputStream(new File(path))));
 		} catch (FileNotFoundException e) {
 			logger.error("[COPIER] Failed to find {}", path, e);
+		} catch (IOException e) {
+			logger.error("[COPIER] IOException occurred while reading {}", path, e);
+		}
+
+		return prop;
+	}
+
+	public Properties loadProp(String path) {
+		Properties prop = new Properties();
+		try {
+			prop.load(new BufferedInputStream(new FileInputStream(new File(path))));
+
+			// log4j.properties
+			PropertyConfigurator.configure(prop.getProperty(IConstants.CONFIG_PROPERTY.LOG4J_PROP_PATH));
+
+		} catch (FileNotFoundException e) {
+			// prop 파일을 찾지 못했다면 log4j.properties path 또한 찾지 못했을 것이기에
+			// logger.error를 사용할 수 없음.
+			System.out.println(e);
 		} catch (IOException e) {
 			logger.error("[COPIER] IOException occurred while reading {}", path, e);
 		}
@@ -76,6 +96,13 @@ public class ConfigManager {
 		String maxWait = prop.getProperty(IConstants.CONFIG_PROPERTY.COPIER_MIN_WAIT);
 		if (CopierUtil.instance().isNumber(maxWait)) {
 			configDto.setCopierMaxWait(Integer.parseInt(maxWait));
+		}
+
+		// check whether source db connection and target db connection can use
+		// only one connection.
+		if (configDto.getSourceDbUrl().equalsIgnoreCase(configDto.getTargetDbUrl())
+				&& configDto.getSourceDbUsername().equalsIgnoreCase(configDto.getTargetDbUsername())) {
+			configDto.setSourceTargetSameConn(true);
 		}
 
 	}
@@ -142,17 +169,4 @@ public class ConfigManager {
 		configDto.setMappingDtoList(mappingDtoList);
 	}
 
-	public void handleConfig() {
-
-		// log4j.properties
-		PropertyConfigurator.configure(configDto.getLog4jPropPath());
-
-		// check whether source db connection and target db connection can use
-		// only one connection.
-		if (configDto.getSourceDbUrl().equalsIgnoreCase(configDto.getTargetDbUrl())
-				&& configDto.getSourceDbUsername().equalsIgnoreCase(configDto.getTargetDbUsername())) {
-			configDto.setSourceTargetSameConn(true);
-		}
-
-	}
 }

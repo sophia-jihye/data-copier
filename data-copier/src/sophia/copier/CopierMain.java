@@ -18,7 +18,6 @@ public class CopierMain {
 
 		// copier-config.properties 파일 내용 load
 		Properties prop = ConfigManager.instance().loadProp(path);
-		ConfigManager.instance().handleConfig();
 
 		String option = prop.getProperty(IConstants.CONFIG_PROPERTY.COPIER_OPTION);
 
@@ -33,7 +32,8 @@ public class CopierMain {
 
 			while (true) {
 				// copier-config.properties 파일에 'off'가 입력될 시 break;
-				option = ConfigManager.instance().loadProp(path).getProperty(IConstants.CONFIG_PROPERTY.COPIER_OPTION);
+				option = ConfigManager.instance().loadPropOnly(path)
+						.getProperty(IConstants.CONFIG_PROPERTY.COPIER_OPTION);
 				if (IConstants.CONFIG_PROPERTY.OPTION_OFF.equalsIgnoreCase(option)) {
 					break;
 				}
