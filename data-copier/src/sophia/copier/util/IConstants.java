@@ -1,4 +1,4 @@
-package sophia.copier.constant;
+package sophia.copier.util;
 
 public interface IConstants {
 

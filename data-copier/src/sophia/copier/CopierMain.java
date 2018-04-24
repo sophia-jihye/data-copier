@@ -2,10 +2,10 @@ package sophia.copier;
 
 import java.util.Properties;
 
-import sophia.copier.constant.IConstants;
 import sophia.copier.manager.ConfigManager;
 import sophia.copier.manager.CopyManager;
 import sophia.copier.util.CopierUtil;
+import sophia.copier.util.IConstants;
 
 public class CopierMain {
 

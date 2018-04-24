@@ -5,10 +5,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sophia.copier.constant.IConstants;
 import sophia.copier.dto.MappingDto;
 import sophia.copier.dto.TempOutputDto;
 import sophia.copier.util.CopierUtil;
+import sophia.copier.util.IConstants;
 
 public class CopyManager {
 

@@ -11,9 +11,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sophia.copier.constant.IConstants;
 import sophia.copier.dto.MappingDto;
 import sophia.copier.dto.TempOutputDto;
+import sophia.copier.util.IConstants;
 
 public class FactoryManager {
 
