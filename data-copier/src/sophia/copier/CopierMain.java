@@ -5,6 +5,7 @@ import java.util.Properties;
 import sophia.copier.constant.IConstants;
 import sophia.copier.manager.ConfigManager;
 import sophia.copier.manager.CopyManager;
+import sophia.copier.util.CopierUtil;
 
 public class CopierMain {
 
@@ -37,6 +38,20 @@ public class CopierMain {
 				if (IConstants.CONFIG_PROPERTY.OPTION_OFF.equalsIgnoreCase(option)) {
 					break;
 				}
+
+				// 실행
+				Integer elapsedMillisec = copyManager.startCopy();
+
+				Integer maxWaitMillisec = ConfigManager.instance().getConfigDto().getCopierMaxWait();
+				Integer minWaitMillisec = ConfigManager.instance().getConfigDto().getCopierMinWait();
+				Integer sleepMilliseconds = maxWaitMillisec;
+
+				if (elapsedMillisec.compareTo(maxWaitMillisec) < 0) {
+					sleepMilliseconds = maxWaitMillisec - elapsedMillisec;
+				} else {
+					sleepMilliseconds = minWaitMillisec;
+				}
+				CopierUtil.instance().sleepThread(sleepMilliseconds);
 			}
 
 		}

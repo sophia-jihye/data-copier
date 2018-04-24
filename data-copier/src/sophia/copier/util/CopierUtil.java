@@ -20,6 +20,14 @@ public class CopierUtil {
 		return instance;
 	}
 
+	public void sleepThread(Integer sleepMilliseconds) {
+		try {
+			Thread.sleep(sleepMilliseconds);
+		} catch (InterruptedException e) {
+			logger.error("[COPIER] InterruptedException occurred while trying to make thread sleep", e);
+		}
+	}
+
 	public String getDateTimeMilFormat() {
 		Date date = new Date(getTimeStamp());
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
