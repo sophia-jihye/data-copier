@@ -11,19 +11,19 @@
 		<environment id="source">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="${source.driverClassName}" />
-				<property name="url" value="${source.url}" />
-				<property name="username" value="${source.username}" />
-				<property name="password" value="${source.password}" />
+				<property name="driver" value="${sourceDbDriverClassName}" />
+				<property name="url" value="${sourceDbUrl}" />
+				<property name="username" value="${sourceDbUsername}" />
+				<property name="password" value="${sourceDbPassword}" />
 			</dataSource>
 		</environment>
 		<environment id="target">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="${target.driverClassName}" />
-				<property name="url" value="${target.url}" />
-				<property name="username" value="${target.username}" />
-				<property name="password" value="${target.password}" />
+				<property name="driver" value="${targetDbDriverClassName}" />
+				<property name="url" value="${targetDbUrl}" />
+				<property name="username" value="${targetDbUsername}" />
+				<property name="password" value="${targetDbPassword}" />
 			</dataSource>
 		</environment>
 	</environments>
