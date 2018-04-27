@@ -86,7 +86,9 @@ public class FactoryManager {
 		} catch (Exception e) {
 			logger.error("[COPIER] Error occurred while executing query. (Failed to select list from sourceTable)", e);
 		} finally {
-			sourceSession.close();
+			if (sourceSession != null) {
+				sourceSession.close();
+			}
 		}
 
 		return sourceOutputList;
@@ -103,12 +105,14 @@ public class FactoryManager {
 			targetSession.rollback();
 			logger.error("[COPIER] Error occurred while executing query. (Failed to insert into targetTable)", e);
 		} finally {
-			targetSession.close();
+			if (targetSession != null) {
+				targetSession.close();
+			}
 		}
 
 		return insertCount;
 	}
-	
+
 	public Integer updateTarget(String targetQueryId, TempOutputDto sourceOutput) {
 		SqlSession targetSession = getTargetSessionFactory().openSession();
 
@@ -120,7 +124,9 @@ public class FactoryManager {
 			targetSession.rollback();
 			logger.error("[COPIER] Error occurred while executing query. (Failed to update targetTable)", e);
 		} finally {
-			targetSession.close();
+			if (targetSession != null) {
+				targetSession.close();
+			}
 		}
 
 		return updateCount;
